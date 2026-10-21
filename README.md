@@ -59,11 +59,11 @@ curl http://localhost:5000/health
 
 ## 🧪 Testing & CI/CD
 
-The tests are located in app/test_app.py.
+The tests are located in `app/test_app.py`.
 
 When running in the CI environment (or locally via Pytest), the application uses an in-memory SQLite database to ensure fast, isolated tests without the need for a real PostgreSQL instance.
 
-Every push to the main branch triggers the GitHub Actions workflow (.github/workflows/ci.yml), which runs the tests and builds the Docker image.
+Every push to the main branch triggers the GitHub Actions workflow (`.github/workflows/ci.yml`), which runs the tests and builds the Docker image.
 
 ## 🩺 Troubleshooting
 
