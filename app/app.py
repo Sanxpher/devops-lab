@@ -15,6 +15,12 @@ db_port = os.getenv("POSTGRES_PORT")
 if os.getenv("TESTING") == "True":
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
 else:
+    db_user = os.getenv("POSTGRES_USER")
+    db_pass = os.getenv("POSTGRES_PASSWORD")
+    db_name = os.getenv("POSTGRES_DB")
+    db_host = os.getenv("POSTGRES_HOST")
+    db_port = os.getenv("POSTGRES_PORT")
+    
     app.config["SQLALCHEMY_DATABASE_URI"] = (
         f"postgresql+psycopg://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"
     )
