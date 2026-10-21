@@ -48,12 +48,14 @@ POSTGRES_DB
 curl http://localhost:5000/health
 
 ## 🔌 API Endpoints
-   Method	      Endpoint	                     Description
-   GET	         /health	                     Health check
-   GET	         /tasks	                     List all tasks
-   POST	         /tasks	                     Create a new task
-   PATCH	         /tasks/<id>/complete         	Mark a task as completed
-   DELETE	      /tasks/<id>	                  Delete a task
+  
+   | Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/health` | Health check |
+| GET | `/tasks` | List all tasks |
+| POST | `/tasks` | Create a new task |
+| PATCH | `/tasks/<id>/complete` | Mark a task as completed |
+| DELETE | `/tasks/<id>` | Delete a task |
 
 ## 🧪 Testing & CI/CD
 
