@@ -96,10 +96,10 @@ def init_db():
 
 @app.route("/tasks/<int:task_id>/complete", methods=["PATCH"])
 def task_done(task_id):
-    task = Task.query.get(task_id)
+    task = db.session.get(Task, task_id)
     if not task:
         return jsonify({"error": "task not found"}), 404
-    db.session.done(task)
+    task.done = True
     db.session.commit()
     return jsonify({"message": "task completed"}), 200
 

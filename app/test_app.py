@@ -29,7 +29,7 @@ def test_create_and_list_task(client):
     assert get_response.status_code == 200
     assert len(get_response.json) >= 1
 
-def test_complete_task(client):
+def test_completed_task(client):
     response_post = client.post('tasks', json={"title": "Test PATCH route"})
     task_id = response_post.json['id']
     response_patch = client.patch(f'/tasks/{task_id}/complete')
