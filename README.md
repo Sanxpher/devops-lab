@@ -47,7 +47,7 @@ POSTGRES_DB
 
 curl http://localhost:5000/health
 
-🔌 API Endpoints
+## 🔌 API Endpoints
    Method	      Endpoint	                     Description
    GET	         /health	                     Health check
    GET	         /tasks	                     List all tasks
@@ -55,7 +55,7 @@ curl http://localhost:5000/health
    PATCH	         /tasks/<id>/complete         	Mark a task as completed
    DELETE	      /tasks/<id>	                  Delete a task
 
-🧪 Testing & CI/CD
+## 🧪 Testing & CI/CD
 
 The tests are located in app/test_app.py.
 
