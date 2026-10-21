@@ -6,11 +6,11 @@ import time
 app = Flask(__name__)
 
 # Configuração do banco de dados via variáveis de ambiente
-db_user = os.getenv("POSTGRES_USER", "admin")
-db_pass = os.getenv("POSTGRES_PASSWORD", "admin123")
-db_name = os.getenv("POSTGRES_DB", "tododb")
-db_host = os.getenv("POSTGRES_HOST", "db")
-db_port = os.getenv("POSTGRES_PORT", "5432")
+db_user = os.getenv("POSTGRES_USER")
+db_pass = os.getenv("POSTGRES_PASSWORD")
+db_name = os.getenv("POSTGRES_DB")
+db_host = os.getenv("POSTGRES_HOST")
+db_port = os.getenv("POSTGRES_PORT")
 
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     f"postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"
