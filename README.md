@@ -1,5 +1,7 @@
 # DevOps Lab - Flask + PostgreSQL + Docker
 
+![CI Pipeline](https://github.com/Sanxpher/devops-lab/actions/workflows/ci.yml/badge.svg)
+
 Este é o primeiro estágio do meu laboratório de DevOps, focado na containerização de uma aplicação web e banco de dados relacional.
 
 ## 🎯 O que este projeto faz
@@ -29,7 +31,8 @@ Uma API REST simples (To-Do List) escrita em Python/Flask, conectada a um banco 
 - **Cache do Docker:** Se o Docker insistir em usar uma versão antiga da imagem, use `docker compose down --rmi all -v` para limpar as camadas de cache e volumes locais.
 - **OneDrive interferindo no Docker:** Se o projeto estiver dentro de pastas sincronizadas do OneDrive, o Docker pode falhar ao ler arquivos. Recomenda-se mover o repositório para um diretório local fora da sincronização em nuvem.
 
-## 🗺️ Roadmap (Próximos Passos)
-- [ ] Implementar CI/CD com GitHub Actions
-- [ ] Adicionar manifests do Kubernetes
-- [ ] Integrar ferramentas de segurança (SAST/Container scanning)
+## 🗺️ Roadmap
+- [x] Fase 1: Containerização da API (Docker/Compose) e Banco de Dados.
+- [x] Fase 2: CI/CD - Pipeline automatizado com GitHub Actions (Testes + Docker Build).
+- [ ] Fase 3: Orquestração com Kubernetes e Infraestrutura como Código.
+- [ ] Fase 4: DevSecOps (Segurança no Pipeline) e Monitoramento.
