@@ -94,6 +94,14 @@ def init_db():
             time.sleep(3)
     raise RuntimeError("Could not connect to the database.")
 
+@app.route("/tasks/<int:task_id>/complete", methods=["PATCH"])
+def task_done(task_id):
+    task = Task.query.get(task_id)
+    if not task:
+        return jsonify({"error": "task not found"}), 404
+    db.session.done(task)
+    db.session.commit()
+    return jsonify({"message": "task completed"}), 200
 
 if __name__ == "__main__":
     init_db()
