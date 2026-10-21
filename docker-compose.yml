@@ -1,0 +1,47 @@
+name: devops-lab-v3
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: devops-lab-db-v3
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: tododb
+    volumes:
+      - db_data_new:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - devops-lab-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d tododb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api-v3:
+    build: ./app
+    container_name: devops-lab-api-v3
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: tododb
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - devops-lab-net
+
+volumes:
+  db_data_new:
+
+networks:
+  devops-lab-net:
+    driver: bridge
